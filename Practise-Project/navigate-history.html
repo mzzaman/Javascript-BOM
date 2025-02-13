@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back & Forward Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Navigate Browser History</h2>
+    <div class="buttons">
+        <button onclick="history.back()">⬅ Back</button>
+        <button onclick="history.forward()">Forward ➡</button>
+        <button onclick="history.go(-2)">Go Back 2 Pages</button>
+    </div>
+</body>
+
+</html>

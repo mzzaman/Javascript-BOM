@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Info App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Browser Information</h2>
+    <div class="info" id="info"></div>
+
+    <script>
+        function getBrowserInfo() {
+            let info = `
+                <strong>Browser:</strong> ${navigator.userAgent} <br>
+                <strong>Platform:</strong> ${navigator.platform} <br>
+                <strong>Language:</strong> ${navigator.language} <br>
+                <strong>Online Status:</strong> ${navigator.onLine ? "Online" : "Offline"}
+            `;
+            document.querySelector("#info").innerHTML = info;
+        }
+
+        getBrowserInfo();
+    </script>
+</body>
+
+</html>

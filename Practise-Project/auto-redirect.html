@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Redirect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Auto-Redirect in 5 Seconds</h2>
+    <div class="message" id="message">Redirecting in <span id="countdown">5</span> seconds...</div>
+
+    <script>
+        let count = 5;
+        const countdownElement = document.getElementById("countdown");
+
+        const countdown = setInterval(() => {
+            count--;
+            countdownElement.textContent = count;
+            if (count === 0) {
+                clearInterval(countdown);
+                window.location.href = "https://www.example.com";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

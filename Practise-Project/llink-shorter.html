@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+
+        .shortened {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Simple URL Shortener</h2>
+    <input type="text" id="url" placeholder="Enter URL to shorten" data-url>
+    <button onclick="shortenURL()">Shorten</button>
+    <div class="shortened" id="shortened" data-shortened></div>
+
+    <script>
+        const shortenURL = () => {
+            let url = document.querySelector("[data-url]").value;
+            let shortCode = Math.random().toString(36).substring(7);
+            localStorage.setItem(shortCode, url);
+            document.querySelector("[data-shortened]").innerHTML = `<a href="?code=${shortCode}" >
+                ${window.location.href}?code=${shortCode}
+                </a>`;
+        }
+
+        function checkRedirect() {
+            let params = new URLSearchParams(window.location.search)
+            if (params.has("code")) {
+                let url = localStorage.getItem(params.get("code"));
+                if (url) window.location.href = url;
+            }
+        }
+
+        checkRedirect();
+    </script>
+</body>
+
+</html>
